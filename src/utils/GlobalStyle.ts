@@ -7,6 +7,14 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     background: ${colors.white};
     font-family: Open-Sans, Helvetica, Sans-Serif;
+    &::-webkit-scrollbar{
+    background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: ${colors.primary};
+        scrollbar-width: 2px;
+        border-radius: 4px;
+    }
   }
 `;
  

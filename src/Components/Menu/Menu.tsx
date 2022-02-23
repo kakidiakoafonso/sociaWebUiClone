@@ -34,7 +34,7 @@ export default function Menu()
                     <p>Categorias</p>
                 
                 {
-                    1===1?
+                    !showMenu?
                     <AiOutlineArrowUp/>
                     :
                     <AiOutlineArrowDown/>
