@@ -6,7 +6,7 @@ import * as S from './styled'
 
 const Logo = "https://www.socia.ao/_nuxt/img/logo.502e630.png"
 type Props = {
-  press:()=>void
+  press:(tla:string)=>void
 }
 export default function Login({press}:Props) {
   return (
@@ -23,7 +23,7 @@ export default function Login({press}:Props) {
             Ou
         <S.Row/>
     </S.Separator>
-    <ButtonSecondary press={press} message="Cadastrar"/>
+    <ButtonSecondary press={()=>press("login")} message="Cadastrar"/>
     </>
   )
 }

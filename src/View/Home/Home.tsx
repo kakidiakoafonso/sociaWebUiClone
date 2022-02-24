@@ -8,15 +8,22 @@ import Card from '../../Components/Card/Card'
 import Modal from '../../Components/Modal/Modal'
 import Login from '../../Components/Login/Login'
 import SignUp from '../../Components/SignUp/SignUp'
+import Detalhe from '../../Components/Detalhe/Detalhe'
 
 
 const produtos = [1,2,3,4,5,6,7,8]
 export default function Home() 
 {
   const [modalLoginIsOpen, setmodalLoginIsOpen] = useState<boolean>(false)
-  const [cadastrar, setcadastrar] = useState<boolean>(true)
+  const [telaAtual, settelaAtual] = useState<string>("detalhe")
 
-  const handleCadastroEntrar = () =>setcadastrar(!cadastrar)
+  const handleTela = (tela:string) =>{
+    settelaAtual(tela)
+  }
+  const handleModalClick = (tela?:string) =>{
+    setmodalLoginIsOpen(!modalLoginIsOpen)
+    if (tela) settelaAtual(tela)
+  }
   return (
       <S.Container>
         <S.Wrapper>
@@ -32,7 +39,7 @@ export default function Home()
 
           <S.CardsContainer>
               {
-                produtos.map(e=><Card onPress={()=>setmodalLoginIsOpen(true)}/>)
+                produtos.map(e=><Card onPress={handleModalClick}/>)
               }
           </S.CardsContainer>
 
@@ -47,7 +54,7 @@ export default function Home()
 
           <S.CardsContainer>
               {
-                produtos.map(e=><Card onPress={()=>setmodalLoginIsOpen(true)}/>)
+                produtos.map(e=><Card onPress={handleModalClick}/>)
               }
           </S.CardsContainer>
         </S.Wrapper>
@@ -55,12 +62,11 @@ export default function Home()
 
         <Modal onClose={()=>setmodalLoginIsOpen(false)}
             isOpen={modalLoginIsOpen}>
-              {
-                !cadastrar?
-                <Login press={handleCadastroEntrar}/>
-                :
-                <SignUp press={handleCadastroEntrar}/>
-              }
+              {telaAtual === "login" &&  <Login press={handleTela}/>}
+              {telaAtual === "sign" &&  <SignUp press={handleTela}/>}
+              {telaAtual === "login" &&  <Login press={handleTela}/>}
+              {telaAtual === "detalhe" &&  <Detalhe />}
+              <Detalhe />
         </Modal>
       </S.Container>
     
