@@ -12,10 +12,11 @@ const scaleAnimation = keyframes`
 `
 
 export const Container = styled.div`
+z-index: 999;
 inset: 0;
 position: fixed;
 background-color: rgba(255,255,255,0.6);
-backdrop-filter: blur(5px);
+backdrop-filter: blur(15px);
 animation: ${scaleAnimation} 100ms ease-in;
 &::-webkit-scrollbar{
     background-color: transparent;

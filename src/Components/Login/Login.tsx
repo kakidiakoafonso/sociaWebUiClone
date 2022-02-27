@@ -23,7 +23,7 @@ export default function Login({press}:Props) {
             Ou
         <S.Row/>
     </S.Separator>
-    <ButtonSecondary press={()=>press("login")} message="Cadastrar"/>
+    <ButtonSecondary press={()=>press("sign")} message="Cadastrar"/>
     </>
   )
 }

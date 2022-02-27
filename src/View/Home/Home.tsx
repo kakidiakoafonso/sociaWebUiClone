@@ -9,6 +9,7 @@ import Modal from '../../Components/Modal/Modal'
 import Login from '../../Components/Login/Login'
 import SignUp from '../../Components/SignUp/SignUp'
 import Detalhe from '../../Components/Detalhe/Detalhe'
+import ListaCompras from '../../Components/Lista/ListaCompras'
 
 
 const produtos = [1,2,3,4,5,6,7,8]
@@ -22,7 +23,7 @@ export default function Home()
   }
   const handleModalClick = (tela?:string) =>{
     setmodalLoginIsOpen(!modalLoginIsOpen)
-    if (tela) settelaAtual(tela)
+    settelaAtual("detalhe")
   }
   return (
       <S.Container>
@@ -62,11 +63,8 @@ export default function Home()
 
         <Modal onClose={()=>setmodalLoginIsOpen(false)}
             isOpen={modalLoginIsOpen}>
-              {telaAtual === "login" &&  <Login press={handleTela}/>}
-              {telaAtual === "sign" &&  <SignUp press={handleTela}/>}
-              {telaAtual === "login" &&  <Login press={handleTela}/>}
-              {telaAtual === "detalhe" &&  <Detalhe />}
-              <Detalhe />
+              {telaAtual === "lista" &&  <ListaCompras />}
+              {telaAtual === "detalhe" &&  <Detalhe press={handleTela}/>}
         </Modal>
       </S.Container>
     

@@ -25,7 +25,7 @@ export default function SignUp({press}:Props)
             Ou
         <S.Row/>
     </S.Separator>
-    <ButtonSecondary press={()=>press("sign")} message="Entrar"/>
+    <ButtonSecondary press={()=>press("login")} message="Entrar"/>
     </>
   )
 }

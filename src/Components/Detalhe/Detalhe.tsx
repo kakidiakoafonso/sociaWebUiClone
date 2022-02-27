@@ -1,6 +1,15 @@
 import React from 'react'
+import ButtonPrimary from '../Buttons/ButtonPrimary'
+import ButtonQuantidade from '../Buttons/ButtonQuantidade'
+import ButtonSecondary from '../Buttons/ButtonSecondary'
 import * as S from './styled'
-export default function Detalhe() {
+
+
+type Props = {
+    press:(tela:string)=>void
+  }
+export default function Detalhe({press}:Props) 
+{
   return (
     <S.Container>
         <S.DetailContainer>
@@ -20,7 +29,55 @@ export default function Detalhe() {
                 </S.EcoContentContainer>
             </S.EcoContainer>
             <S.EntregasText>Entregas totalmente gratuítas!</S.EntregasText>
+            <S.ChoiceContainer>
+                <S.ChoiceWrapper>
+                    <p>Fazer socia</p> <S.ComboBox type={"radio"}/>
+                </S.ChoiceWrapper>
+                <S.ChoiceWrapper>
+                    <p>Comprar caixa</p> <S.ComboBox type={"radio"}/>
+                </S.ChoiceWrapper>
+            </S.ChoiceContainer>
+
+            <S.ProductContainer>
+                <S.Quantidade>Dividir com quantas pessoas?</S.Quantidade>
+
+                <S.ProductDetailContainerWrapper>
+
+                    <S.ProductDetailContainer>
+                        <S.EcoNormalText>Vai receber</S.EcoNormalText>
+                        <S.EcoBoldText>12 Un</S.EcoBoldText> 
+                    </S.ProductDetailContainer>
+                    <S.ProductDetailContainer>
+                        <S.EcoNormalText>Vai pagar</S.EcoNormalText>
+                        <S.EcoBoldText>10.416,73 AOA</S.EcoBoldText> 
+                    </S.ProductDetailContainer>
+                    <S.ProductDetailContainer>
+                        <S.EcoNormalText>Vai poupar</S.EcoNormalText>
+                        <S.EcoBoldText>520,84 AOA</S.EcoBoldText> 
+                    </S.ProductDetailContainer>
+
+                </S.ProductDetailContainerWrapper>
+                
+
+                <ButtonQuantidade/>
+                <ButtonPrimary message='Fazer socia'
+                width='100%' height={30} fontSize={12}/>
+            </S.ProductContainer>
+                <S.ChoiceContainer>
+                    <S.OuText>OU</S.OuText>
+                </S.ChoiceContainer>
+                <ButtonSecondary message='Adicionar ao carrinho'
+                    press={()=>console.log("A")} height={35}
+                    width={"80%"} bordas
+                />
         </S.DetailContainer>
+        <S.ImageContainer>
+            <S.Image src='https://api.socia.ao/files/images/303b00ff-3b88-4111-99c2-ac3e36d5a455.jpg'/>
+            <S.ListaCompra onClick={()=>press("lista")}>
+                Adicionar a uma lista de compras    
+            </S.ListaCompra>
+        </S.ImageContainer>
+
     </S.Container>
   )
 }
