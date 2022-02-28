@@ -104,12 +104,12 @@ export const Input = styled.input`
 /* background-color: yellow; */
 width: 80%;
 height: 40px;
-color: ${colors.grey};
+color: #000;
 border: none;
 font-size: 16px;
 margin-left: 20px;
 :focus{
-    border-style: none;
+    outline: none;
 }
 `;
 
@@ -204,6 +204,7 @@ const SearchResultAnimation = keyframes`
 export const SearchResult = styled.div<ISearchResult>`
 display: ${props=>props.display};
 flex-direction: column;
+z-index:12;
 width: 100%;
 height: 400px;
 background-color: ${colors.grey};

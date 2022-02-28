@@ -1,4 +1,5 @@
 import React from 'react';
+import Banner from './Components/Banner/Banner';
 import Header from './Components/Header/Header';
 import Menu from './Components/Menu/Menu';
 import GlobalStyle from './utils/GlobalStyle';
@@ -10,6 +11,7 @@ function App() {
     <GlobalStyle/>
       <Header/>
       <Menu/>
+      <Banner/>
       <Home/>
     </>
    );

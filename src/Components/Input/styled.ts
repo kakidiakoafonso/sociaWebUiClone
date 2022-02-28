@@ -16,8 +16,7 @@ height: 30px;
 border: none;
 margin-left: 10px;
 background: transparent;
-&:focus{
-    border-style: none;
-    border-color: red;
+:focus{
+    outline: none;
 }
 `

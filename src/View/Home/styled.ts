@@ -50,3 +50,64 @@ flex-wrap: wrap;
 justify-content: space-between;
 
 `
+export const FloatContainer = styled.div`
+width: 60px;
+height: 110px;
+position:fixed;
+bottom:20px;
+right:20px;
+z-index: 2;
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-direction: column;
+`
+export const Up = styled.button`
+width: 50px;
+height: 50px;
+background-color: #fff;
+border-radius: 50%;
+box-shadow: 3px 3px 10px 2px rgba(0,0,0,.5);
+color: ${colors.primary};
+display: flex;
+justify-content: center;
+align-items: center;
+border: none;
+&:focus{outline:none}
+&:hover{cursor: pointer;}
+`
+export const Cart = styled.button`
+width: 50px;
+height: 50px;
+background-color:${colors.primary};
+border-radius: 50%;
+box-shadow: 3px 3px 10px 2px rgba(0,0,0,.5);
+color: #fff;
+display: flex;
+justify-content: center;
+align-items: center;
+border: none;
+position: relative;
+&:focus{outline:none}
+&:hover{cursor: pointer;}
+`
+
+export const Badge = styled.div`
+width: 27px;
+height: 27px;
+border-radius: 50%;
+position:absolute;
+background-color: #FA78FF;
+left:-10px;
+top:17px;
+z-index: 2;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+`
+export const BadgeText = styled.div`
+color: #fff;
+font-weight: bold;
+font-size: 15px;
+`

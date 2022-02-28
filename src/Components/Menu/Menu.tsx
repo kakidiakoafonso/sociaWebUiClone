@@ -7,6 +7,7 @@ import { BsFillBagPlusFill,BsFillTelephoneFill} from 'react-icons/bs';
 import { FaConciergeBell,FaGifts,FaIgloo} from 'react-icons/fa';
 import Resultado from '../Resultado/Resultado';
 import Item from '../Item/Item';
+import api, { Iproduto } from '../../services/data';
 
 
 const result = [1,2,3,4,5,6]
@@ -43,7 +44,7 @@ export default function Menu()
 
                 <S.MenuItemContainer display={showMenu? "block":"none"}>
                     {
-                        Categorias.map((e,index)=><Item key={index} delay={index} nome={e}/>)
+                        api.map((e:Iproduto,index)=><Item key={index} delay={index} nome={e.nome}/>)
                     }
                 </S.MenuItemContainer>
             </S.MenuButtonContainer>
@@ -87,8 +88,8 @@ export default function Menu()
 
             <S.SearchResult display={searchInputFocused? "block":"none"}> 
                 {
-                    result.map((e,index)=>
-                    <Resultado key={index}/>)
+                    api.map((produto:Iproduto,index)=>
+                    <Resultado key={index} data={produto}/>)
                 }
             </S.SearchResult>
             </S.SearchContainer>

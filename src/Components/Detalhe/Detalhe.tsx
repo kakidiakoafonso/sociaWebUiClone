@@ -1,4 +1,5 @@
 import React from 'react'
+import { useProduto } from '../../Context/ProdutoContext'
 import ButtonPrimary from '../Buttons/ButtonPrimary'
 import ButtonQuantidade from '../Buttons/ButtonQuantidade'
 import ButtonSecondary from '../Buttons/ButtonSecondary'
@@ -10,10 +11,11 @@ type Props = {
   }
 export default function Detalhe({press}:Props) 
 {
+    const {produtoSelecionado} = useProduto()
   return (
     <S.Container>
         <S.DetailContainer>
-            <S.NomeProduto>Arroz Familia Feliz</S.NomeProduto>
+            <S.NomeProduto>{produtoSelecionado.nome}</S.NomeProduto>
             <S.EcoContainer>
                 <S.EcoContentContainer>
                     <S.EcoBoldText>Categoria:</S.EcoBoldText> <S.EcoNormalText>Sem informação</S.EcoNormalText>
@@ -22,7 +24,7 @@ export default function Detalhe({press}:Props)
                     <S.EcoBoldText>Preço unitário:</S.EcoBoldText> <S.EcoNormalText>477,32 AOA</S.EcoNormalText>
                 </S.EcoContentContainer>
                 <S.EcoContentContainer>
-                    <S.EcoBoldText>Preço da caixa:</S.EcoBoldText> <S.EcoNormalText>11.932,9 AOA</S.EcoNormalText>
+                    <S.EcoBoldText>Preço da caixa:</S.EcoBoldText> <S.EcoNormalText>{produtoSelecionado.preco} AOA</S.EcoNormalText>
                 </S.EcoContentContainer>
                 <S.EcoContentContainer>
                     <S.EcoBoldText>Quantidade:</S.EcoBoldText> <S.EcoNormalText>25 Kilogramas</S.EcoNormalText>
@@ -72,7 +74,7 @@ export default function Detalhe({press}:Props)
                 />
         </S.DetailContainer>
         <S.ImageContainer>
-            <S.Image src='https://api.socia.ao/files/images/303b00ff-3b88-4111-99c2-ac3e36d5a455.jpg'/>
+            <S.Image src={produtoSelecionado.image}/>
             <S.ListaCompra onClick={()=>press("lista")}>
                 Adicionar a uma lista de compras    
             </S.ListaCompra>

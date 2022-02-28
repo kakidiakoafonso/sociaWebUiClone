@@ -3,6 +3,7 @@ import { colors } from './colors';
  
 const GlobalStyle = createGlobalStyle`
   body {
+    scroll-behavior: smooth;
     margin: 0;
     padding: 0;
     background: ${colors.white};
