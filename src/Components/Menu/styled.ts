@@ -50,6 +50,7 @@ border-radius: 3px;
 color: #000;
 font-weight: bold;
 opacity: 0.7;
+padding-left: 10px;
 `;
 
 export const CenterContainer = styled.div`
@@ -237,5 +238,6 @@ position: absolute;
 top: 57px;
 width: 100%;
 height: 400px;
+z-index: 5;
 /* background-color: ${colors.primary}; */
 `;

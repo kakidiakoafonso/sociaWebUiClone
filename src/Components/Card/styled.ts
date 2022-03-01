@@ -93,7 +93,17 @@ align-items: center;
 justify-content: space-between;
 `
 export const AddBtn = styled.button`
-width: 13   0px;
+width: 130px;
+height: 35px;
+background-color: ${colors.white};
+color: ${colors.primary};
+border-radius: 8px;
+border: none;
+margin-left:10px;
+font-size: 12px;
+`
+export const BtnQtdContainer = styled.div`
+width: 130px;
 height: 35px;
 background-color: ${colors.white};
 color: ${colors.primary};

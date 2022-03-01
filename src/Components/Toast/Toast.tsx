@@ -10,9 +10,7 @@ export default function Toast({click}:Props)
     const {animationType} =  useProduto() 
 
   return (
-    <S.Container 
-    // animationType={"fadeIn"}>
-    animationType={animationType==="fadeIn"? "fadeIn":"fadeOut"}> 
+    <S.Container> 
         
     </S.Container>
   )

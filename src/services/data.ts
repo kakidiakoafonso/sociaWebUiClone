@@ -9,7 +9,7 @@ export type Iproduto = {
 const api:Iproduto[] = [
     {
         id:1,
-        nome:"ESSENCIAS FOSTER CLARKS BANANA 28ML",
+        nome:"ESSENCIAS FOSTER CLARKS ",
         preco:"328,89",
         precoAntigo:657.79,
         unidade:"Uni",
@@ -41,7 +41,7 @@ const api:Iproduto[] = [
     },
     {
         id:5,
-        nome:"ARROZ BASMATI SONA GOLD PACOTE 1KG",
+        nome:"ARROZ BASMATI SONA 1KG",
         preco:"2.352",
         precoAntigo:657.79,
         unidade:"KG",
@@ -49,7 +49,7 @@ const api:Iproduto[] = [
     },
     {
         id:6,
-        nome:"MASSA MACARRAO TIO LUCAS 400GR",
+        nome:"MASSA MACARRAO",
         preco:"352,8",
         precoAntigo:1657.79,
         unidade:"KG",
@@ -65,7 +65,7 @@ const api:Iproduto[] = [
     },
     {
         id:8,
-        nome:"BOLACHA NACIONAL MY COOKIE TRADICIONAL (150G)",
+        nome:"BOLACHA NACIONAL MY COOKIE",
         preco:"902,78",
         precoAntigo:657.79,
         unidade:"Uni",

@@ -56,15 +56,9 @@ const fadeOutAnimation = keyframes`
 type Props = {
     animationType: "fadeIn"|"fadeOut"
 }
-export const Container = styled.div<Props>`
+export const Container = styled.div`
 width: 350px;
 height:150px;
-position:fixed;
-top:20px;
-right:20px;
 background-color: red;
 border-radius: 10px;
-/* animation: ${(Props)=> Props.animationType==="fadeIn"? css`${fadeAnimation}  400ms`: css`${fadeOutAnimation}  400ms`} ; */
-/* animation-timing-function: ease-in; */
-transform:${(Props)=> Props.animationType==="fadeOut" ? css`translateX(400px)`:css`translateX(0px)`} ;
 `

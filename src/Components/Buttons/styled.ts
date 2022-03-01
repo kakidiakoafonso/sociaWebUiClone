@@ -38,7 +38,7 @@ export const ContainerButtonQuantidade = styled.div`
 width: 95%;
 height: 30px;
 /* background-color: ${colors.primary}; */
-border:2px ${colors.primary} solid;
+border: 2px solid 	rgba(133, 20, 142,.3);
 border-radius: 6px; 
 display: flex;
 align-items: center;

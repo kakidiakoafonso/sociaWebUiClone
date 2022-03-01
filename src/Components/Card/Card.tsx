@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import { useProduto } from '../../Context/ProdutoContext'
 import { Iproduto } from '../../services/data'
 import * as S from './styled'
+import { useToast } from '@chakra-ui/react'
+import ButtonQuantidade from '../Buttons/ButtonQuantidade'
 
 
-const img = "https://api.socia.ao/files/images/303b00ff-3b88-4111-99c2-ac3e36d5a455.jpg"
 
 type Props = {
     onPress:(Produto:Iproduto)=>void,
@@ -12,15 +13,37 @@ type Props = {
 }
 export default function Card({onPress,produto}:Props) 
 {
+    const toast = useToast()
     const {setcarrinho,carrinho,setanimationType,animationType} = useProduto()
+    const [noCarrinho, setnoCarrinho] = useState<boolean>(false)
+    useEffect(()=>{
+        if(carrinho.includes(produto))
+            setnoCarrinho(true)
+    },[])
     const addCarrinho = ()=>
     {
         if(!carrinho.includes(produto))
             {
                 setcarrinho((prev:any)=> [...prev,produto])
-                if(animationType==="fadeIn") setanimationType("fadeOu")
-                if(animationType==="fadeOut") setanimationType("fadeIn")
+                toast({
+                    title: 'Produto adicionado.',
+                    description: "Produto adicionado com sucesso.",
+                    status: 'success',
+                    duration: 9000,
+                    isClosable: true,
+                    position: 'top-right'
+                  })
             }
+        else{
+            toast({
+                title: 'Produto já está no carrinho.',
+                description: "O produto selecionado já foi adicionado ao carrinho.",
+                status: 'warning',
+                duration: 9000,
+                isClosable: true,
+                position: 'top-right'                
+              })
+        }
     }
   return (
     <S.Container >
@@ -39,7 +62,14 @@ export default function Card({onPress,produto}:Props)
                 </S.Bottom>
             </S.DetailTop>
             <S.DetailBottom>
-                <S.AddBtn onClick={addCarrinho}>Adicionar ao carrinho</S.AddBtn>
+                {
+                    noCarrinho? 
+                    <S.BtnQtdContainer>
+                        <ButtonQuantidade/>
+                    </S.BtnQtdContainer>                    
+                    :
+                    <S.AddBtn onClick={addCarrinho}>Adicionar ao carrinho</S.AddBtn>
+                }
                 <S.SociaBtn onClick={()=>onPress(produto)}>Fazer socia</S.SociaBtn>
             </S.DetailBottom>
         </S.DetailContainer>

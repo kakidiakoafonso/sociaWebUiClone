@@ -58,7 +58,7 @@ background-color: ${colors.primary};
 display: flex;
 align-items: center;
 justify-content: flex-end;
-border-radius: 300px 0 0 0 ;
+border-radius: 200px 0 0 200px ;
 `
 
 

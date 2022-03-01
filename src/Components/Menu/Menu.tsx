@@ -44,7 +44,7 @@ export default function Menu()
 
                 <S.MenuItemContainer display={showMenu? "block":"none"}>
                     {
-                        api.map((e:Iproduto,index)=><Item key={index} delay={index} nome={e.nome}/>)
+                       Categorias.map((e,index)=><Item key={index} delay={index} nome={e}/>)
                     }
                 </S.MenuItemContainer>
             </S.MenuButtonContainer>

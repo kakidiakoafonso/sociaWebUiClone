@@ -1,14 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {HiOutlineArrowNarrowRight} from 'react-icons/hi'
 import {AiOutlineArrowUp,AiOutlineShoppingCart} from 'react-icons/ai'
 import * as S from './styled'
-import Header from '../../Components/Header/Header'
-import Menu from '../../Components/Menu/Menu'
 import { colors } from '../../utils/colors'
 import Card from '../../Components/Card/Card'
 import Modal from '../../Components/Modal/Modal'
-import Login from '../../Components/Login/Login'
-import SignUp from '../../Components/SignUp/SignUp'
 import Detalhe from '../../Components/Detalhe/Detalhe'
 import ListaCompras from '../../Components/Lista/ListaCompras'
 
@@ -17,9 +13,8 @@ import Empty from '../../Components/Empty/Empty'
 import Footer from '../../Components/Footer/Footer'
 import api, { Iproduto } from '../../services/data'
 import { useProduto } from '../../Context/ProdutoContext'
-import Toast from '../../Components/Toast/Toast'
+import ProductList from '../../Components/ProductList/ProductList'
 
-const produtos = [1,2,3,4,5,6,7,8]
 export default function Home() 
 {
   const [modalLoginIsOpen, setmodalLoginIsOpen] = useState<boolean>(false)
@@ -36,13 +31,25 @@ export default function Home()
     if(produto) setprodutoSelecionado(produto)
 
   }
+  const handleCartButtonClick = () =>{
+    setmodalLoginIsOpen(true)
+    settelaAtual("carrinho")
+
+  }
   const handleUpClick = () =>{
     window.scroll({top:0,behavior:'smooth'})
   }
-  const handleCartClick = () =>{
-    settelaAtual('empty')
+  const handleCartClick = () =>
+  {
+    if(carrinho.lenght ===0)
+      settelaAtual('empty')
+    else
+      settelaAtual('carrinho')
+
     setmodalLoginIsOpen(true)
   }
+
+  useEffect(()=>{settelaAtual('empty')},[carrinho])
 
 
   return (
@@ -86,6 +93,7 @@ export default function Home()
               {telaAtual === "lista" &&  <ListaCompras />}
               {telaAtual === "detalhe" &&  <Detalhe press={handleTela}/>}
               {telaAtual === "empty" &&  <Empty/>}
+              {telaAtual === "carrinho" &&  <ProductList/>}
               
         </Modal>
 
@@ -99,7 +107,6 @@ export default function Home()
               </S.Cart>
         </S.FloatContainer>
             
-        <Toast/>
         <Footer/>
       </S.Container>
     
